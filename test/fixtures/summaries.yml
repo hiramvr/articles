@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: summaries
+#
+#  id          :integer          not null, primary key
+#  title       :string           not null
+#  content     :string           not null
+#  source_type :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  content: MyString
+  source_type: MyString
+
+two:
+  title: MyString
+  content: MyString
+  source_type: MyString

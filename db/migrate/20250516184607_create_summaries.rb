@@ -4,7 +4,7 @@ class CreateSummaries < ActiveRecord::Migration[8.0]
       t.string :title, null: false
       t.string :content, null: false
       t.string :source_type, null: false
-      
+
 
       t.timestamps
     end

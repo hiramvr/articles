@@ -8,6 +8,11 @@
 #  source_type :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  article_id  :integer          not null
+#
+# Indexes
+#
+#  index_summaries_on_article_id  (article_id)
 #
 
 require "test_helper"

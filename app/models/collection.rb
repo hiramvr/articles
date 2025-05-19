@@ -10,8 +10,8 @@
 #
 
 class Collection < ApplicationRecord
-    validates :title, presence:true
-    validates :name_articles, presence:true
-    validates :created_at, presence:true
-    validates :updated_at, presence:true
+    validates :title, presence: true
+    validates :name_articles, presence: true
+    validates :created_at, presence: true
+    validates :updated_at, presence: true
 end

@@ -1,0 +1,38 @@
+<h2>📎 Scrapear un nuevo artículo</h2>
+  
+<%= form_with url: scrape_articles_path, method: :post, local: true do %>
+  <div class="form-group">
+    <label for="url">URL del artículo:</label>
+    <input type="text" name="url" id="url" class="form-control" placeholder="https://ejemplo.com/articulo" size="100">
+  </div>
+  <div style="margin-top: 10px;">
+    <button type="submit">Scrapear</button>
+  </div>
+<% end %>
+
+<% if notice %>
+  <p style="color: green;"><%= notice %></p>
+<% elsif alert %>
+  <p style="color: red;"><%= alert %></p>
+<% end %>
+
+<hr>
+
+<h2>📰 Artículos scrappeados</h2>
+
+<% @articles.each do |article| %>
+  <div style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc;">
+    <h3><%= article.title.presence || "Sin título" %></h3>
+    <p><strong>Fecha de publicación:</strong> <%= article.published_at || "No disponible" %></p>
+    <p><strong>Contenido:</strong></p>
+    <p><%= truncate(article.content, length: 300, separator: " ") %></p>
+    <p><strong>URL:</strong> <%= link_to article.link, article.link, target: "_blank" %></p>
+
+    <p>
+      <%= button_to "Ver", article_path(article), method: :get, data: {turbo_method: :get} %>|
+      <%= button_to "Eliminar", article_path(article), method: :delete, data: { confirm: "¿Estás seguro?" } %>
+
+    </p>
+
+  </div>
+<% end %>

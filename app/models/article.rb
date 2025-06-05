@@ -12,11 +12,8 @@
 #
 
 class Article < ApplicationRecord
-    has_one :summary, dependent: :destroy
-
-    validates :title, presence: true
-    validates :content, presence: true
-    validates :link, presence: true
-    validates :created_at, presence: true
-    validates :updated_at, presence: true
+  has_one :summary, dependent: :destroy
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :link, presence: true
 end

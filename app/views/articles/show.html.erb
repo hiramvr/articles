@@ -1,0 +1,9 @@
+<h1><%= @article.title %></h1>
+
+<p><strong>Fecha de publicacion:</strong> <%= @article.published_at || "No disponible" %></p>
+<p><strong>Contenido:</strong><br><%= simple_format(@article.content) %></p>
+<p><strong>URL:</strong> <%= link_to @article.link, @article.link, target: "_blank" %></p>
+
+
+<%= link_to "Volver", articles_path, style: "padding: 6px 12px; background: #ddd; border-radius: 4px; text-decoration: none;" %>
+

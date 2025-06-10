@@ -15,7 +15,7 @@
 
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+  <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
@@ -23,6 +23,19 @@
   </head>
 
   <body>
+    <!-- ✅ Flash messages -->
+    <% flash.each do |key, value| %>
+      <p style="padding: 10px; margin: 10px 0; background-color: <%= key == "notice" ? "#e0ffe0" : "#ffe0e0" %>; border: 1px solid <%= key == "notice" ? "#00aa00" : "#aa0000" %>;">
+        <%= value %>
+      </p>
+    <% end %>
+    <% if user_signed_in? %>
+      <div style="text-align: right; padding: 10px;">
+        👤 <%= current_user.email %> |
+        <%= link_to "Cerrar sesión", destroy_user_session_path, data: { turbo_method: :delete, confirm: "¿Seguro que quieres salir?" }, style: "color: red;" %>
+      </div>
+    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

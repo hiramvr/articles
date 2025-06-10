@@ -29,7 +29,7 @@
     <p><strong>URL:</strong> <%= link_to article.link, article.link, target: "_blank" %></p>
 
     <p>
-      <%= button_to "Ver", article_path(article), method: :get, data: {turbo_method: :get} %>|
+      <%= button_to "Ver", article_path(article), method: :get, data: {turbo_method: :get} %>
       <%= button_to "Eliminar", article_path(article), method: :delete, data: { confirm: "¿Estás seguro?" } %>
 
     </p>
